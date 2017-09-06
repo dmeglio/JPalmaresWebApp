@@ -1,0 +1,57 @@
+﻿@model JPalmaresWebApp.Models.Vittorie
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Vittorie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Idtrofeo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idtrofeo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Stagione)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stagione)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Commenti)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Commenti)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordstagione)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ordstagione)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordprogressivo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ordprogressivo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Allenatore)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Allenatore)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

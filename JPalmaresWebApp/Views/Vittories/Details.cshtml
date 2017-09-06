@@ -1,0 +1,54 @@
+﻿@model JPalmaresWebApp.Models.Vittorie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vittorie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Idtrofeo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idtrofeo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Stagione)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Stagione)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Commenti)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Commenti)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordstagione)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ordstagione)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordprogressivo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ordprogressivo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Allenatore)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Allenatore)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

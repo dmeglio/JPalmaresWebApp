@@ -1,0 +1,108 @@
+﻿@model JPalmaresWebApp.Models.Partite
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Partite</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Idvittoria)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idvittoria)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Idsquadra1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idsquadra1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Idsquadra2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Idsquadra2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Luogo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Luogo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Tabellino)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tabellino)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Identif)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Identif)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dts)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dts)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dcr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dcr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Commento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Commento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Punteggio1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Punteggio1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Punteggio2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Punteggio2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Puntbcr1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Puntbcr1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Puntbcr2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Puntbcr2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordine)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ordine)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

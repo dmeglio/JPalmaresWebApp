@@ -1,0 +1,119 @@
+﻿@model IEnumerable<JPalmaresWebApp.Models.Partite>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Idvittoria)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Idsquadra1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Idsquadra2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Luogo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Data)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tabellino)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Identif)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dts)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dcr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Commento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Punteggio1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Punteggio2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Puntbcr1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Puntbcr2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ordine)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idvittoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idsquadra1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idsquadra2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Luogo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tabellino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dcr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Commento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Punteggio1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Punteggio2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntbcr1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntbcr2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ordine)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

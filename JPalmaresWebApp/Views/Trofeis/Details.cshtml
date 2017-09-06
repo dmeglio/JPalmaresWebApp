@@ -1,0 +1,66 @@
+﻿@model JPalmaresWebApp.Models.Trofei
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Trofei</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Trofeo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Trofeo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Immagine)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Immagine)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Bigimmagine)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Bigimmagine)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ufficiale)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ufficiale)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Antico)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Antico)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Amichevole)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Amichevole)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Importante)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Importante)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordprogressivo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ordprogressivo)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
