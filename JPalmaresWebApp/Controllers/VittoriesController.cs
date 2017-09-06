@@ -21,7 +21,11 @@ namespace JPalmaresWebApp.Controllers
         // GET: Vittories
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Vittorie.ToListAsync());
+            var vittorie = await _context.Vittorie
+                .Include(s => s.Trofei)
+                .ToListAsync();
+
+            return View(vittorie);
         }
 
         // GET: Vittories/Details/5
@@ -33,7 +37,10 @@ namespace JPalmaresWebApp.Controllers
             }
 
             var vittorie = await _context.Vittorie
+                .Include(s => s.Trofei)
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.Id == id);
+
             if (vittorie == null)
             {
                 return NotFound();

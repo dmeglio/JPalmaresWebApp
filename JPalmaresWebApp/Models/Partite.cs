@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JPalmaresWebApp.Models
 {
     public partial class Partite
     {
         public long Id { get; set; }
+        [ForeignKey("Vittorie")]
         public long Idvittoria { get; set; }
+        [ForeignKey("Squadre1")]
         public long Idsquadra1 { get; set; }
+        [ForeignKey("Squadre2")]
         public long Idsquadra2 { get; set; }
         public string Luogo { get; set; }
         public string Data { get; set; }
@@ -21,5 +25,9 @@ namespace JPalmaresWebApp.Models
         public long Puntbcr1 { get; set; }
         public long Puntbcr2 { get; set; }
         public long Ordine { get; set; }
+
+        public Vittorie Vittorie { get; set; }
+        public Squadre Squadre1 { get; set; }
+        public Squadre Squadre2 { get; set; }
     }
 }

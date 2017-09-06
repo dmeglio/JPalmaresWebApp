@@ -16,6 +16,9 @@
                     @Html.DisplayNameFor(model => model.Idtrofeo)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Trofei.Trofeo)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Stagione)
                 </th>
                 <th>
@@ -38,6 +41,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Idtrofeo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trofei.Trofeo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Stagione)
