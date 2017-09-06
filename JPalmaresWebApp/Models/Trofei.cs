@@ -14,5 +14,7 @@ namespace JPalmaresWebApp.Models
         public string Amichevole { get; set; }
         public string Importante { get; set; }
         public long Ordprogressivo { get; set; }
+
+        public ICollection<Vittorie> Vittories { get; set; }
     }
 }

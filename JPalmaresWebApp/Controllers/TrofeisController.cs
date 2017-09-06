@@ -33,7 +33,13 @@ namespace JPalmaresWebApp.Controllers
             }
 
             var trofei = await _context.Trofei
+                .Include(s => s.Vittories)
+                .AsNoTracking()
                 .SingleOrDefaultAsync(m => m.Id == id);
+
+            /* var trofei = await _context.Trofei
+                .SingleOrDefaultAsync(m => m.Id == id); */
+
             if (trofei == null)
             {
                 return NotFound();

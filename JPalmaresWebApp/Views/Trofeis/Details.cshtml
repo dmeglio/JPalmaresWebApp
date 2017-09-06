@@ -58,6 +58,28 @@
         <dd>
             @Html.DisplayFor(model => model.Ordprogressivo)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vittories)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Stagione</th>
+                    <th>Allenatore</th>
+                </tr>
+                @foreach (var item in Model.Vittories)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stagione)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Allenatore)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>
