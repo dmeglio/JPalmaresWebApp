@@ -1,0 +1,63 @@
+﻿@model JPalmaresWebApp.Models.Vittorie
+
+@{
+    ViewData["Title"] = "Partite";
+}
+
+<h2>@Html.DisplayFor(model => model.Trofei.Trofeo) - @Html.DisplayFor(model => model.Stagione)</h2>
+
+<div>
+    <h4>Partite</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Commenti)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Commenti)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Allenatore)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Allenatore)
+        </dd>
+    </dl>
+</div>
+<div>
+    <dl>
+        <dt>
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Luogo</th>
+                    <th>Tabellino</th>
+                </tr>
+                @foreach (var item in Model.Partites)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Squadre1.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Squadre2.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Luogo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tabellino)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Welcome">Back to List</a>
+</div>

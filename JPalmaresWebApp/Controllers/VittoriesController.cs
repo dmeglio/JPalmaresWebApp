@@ -30,13 +30,30 @@ namespace JPalmaresWebApp.Controllers
         }
 
         // GET: Vittories
-        public async Task<IActionResult> Welcome(string sortOrder, string searchString)
+        public async Task<IActionResult> Welcome(
+            string sortOrder,
+            string currentFilter,
+            string searchString,
+            int? page)
         {
+            // Sorting
+            ViewData["CurrentSort"] = sortOrder;
             ViewData["AllenatoreSortParm"] = sortOrder == "allenatore" ? "allenatore_desc" : "allenatore";
             ViewData["TrofeoSortParm"] = sortOrder == "trofeo" ? "trofeo_desc" : "trofeo";
             ViewData["StagioneSortParm"] = String.IsNullOrEmpty(sortOrder) ? "stagione_desc" : "";
+
+            //Filtering
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
             ViewData["CurrentFilter"] = searchString;
 
+            // Query
             var vittorie = from m in _context.Vittorie
                             .Include(s => s.Trofei)
                            select m;
@@ -70,7 +87,33 @@ namespace JPalmaresWebApp.Controllers
                     break;
             }
 
-            return View(await vittorie.AsNoTracking().ToListAsync());
+            int pageSize = 10;
+            return View(await PaginatedList<Vittorie>.CreateAsync(vittorie.AsNoTracking(), page ?? 1, pageSize));
+        }
+
+        // GET: Vittories/Details/5
+        public async Task<IActionResult> Partite(long? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var vittorie = await _context.Vittorie
+                .Include(s => s.Trofei)
+                .Include(s => s.Partites)
+                    .ThenInclude(s1 => s1.Squadre1)
+                .Include(s => s.Partites)
+                    .ThenInclude(s2 => s2.Squadre2)
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.Id == id);
+
+            if (vittorie == null)
+            {
+                return NotFound();
+            }
+
+            return View(vittorie);
         }
 
         // GET: Vittories/Details/5

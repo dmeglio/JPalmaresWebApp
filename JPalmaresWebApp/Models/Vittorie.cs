@@ -16,5 +16,6 @@ namespace JPalmaresWebApp.Models
         public string Allenatore { get; set; }
 
         public Trofei Trofei { get; set; }
+        public ICollection<Partite> Partites { get; set; }
     }
 }
