@@ -13,22 +13,10 @@
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Idtrofeo)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Trofei.Trofeo)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Stagione)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Commenti)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Ordstagione)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Ordprogressivo)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Allenatore)
@@ -40,22 +28,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Idtrofeo)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Trofei.Trofeo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Stagione)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Commenti)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ordstagione)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ordprogressivo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Allenatore)

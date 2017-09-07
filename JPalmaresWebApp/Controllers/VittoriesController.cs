@@ -23,9 +23,54 @@ namespace JPalmaresWebApp.Controllers
         {
             var vittorie = await _context.Vittorie
                 .Include(s => s.Trofei)
+                .OrderBy(s => s.Stagione)
                 .ToListAsync();
 
             return View(vittorie);
+        }
+
+        // GET: Vittories
+        public async Task<IActionResult> Welcome(string sortOrder, string searchString)
+        {
+            ViewData["AllenatoreSortParm"] = sortOrder == "allenatore" ? "allenatore_desc" : "allenatore";
+            ViewData["TrofeoSortParm"] = sortOrder == "trofeo" ? "trofeo_desc" : "trofeo";
+            ViewData["StagioneSortParm"] = String.IsNullOrEmpty(sortOrder) ? "stagione_desc" : "";
+            ViewData["CurrentFilter"] = searchString;
+
+            var vittorie = from m in _context.Vittorie
+                            .Include(s => s.Trofei)
+                           select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                vittorie = vittorie.Where(s => s.Allenatore.Contains(searchString)
+                                       || s.Stagione.Contains(searchString)
+                                       || s.Trofei.Trofeo.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "allenatore_desc":
+                    vittorie = vittorie.OrderByDescending(s => s.Allenatore);
+                    break;
+                case "allenatore":
+                    vittorie = vittorie.OrderBy(s => s.Allenatore);
+                    break;
+                case "trofeo_desc":
+                    vittorie = vittorie.OrderByDescending(s => s.Trofei.Trofeo);
+                    break;
+                case "trofeo":
+                    vittorie = vittorie.OrderBy(s => s.Trofei.Trofeo);
+                    break;
+                case "stagione_desc":
+                    vittorie = vittorie.OrderByDescending(s => s.Stagione);
+                    break;
+                default:
+                    vittorie = vittorie.OrderBy(s => s.Stagione);
+                    break;
+            }
+
+            return View(await vittorie.AsNoTracking().ToListAsync());
         }
 
         // GET: Vittories/Details/5

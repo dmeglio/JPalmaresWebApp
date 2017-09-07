@@ -1,0 +1,52 @@
+﻿@model IEnumerable<JPalmaresWebApp.Models.Vittorie>
+
+@{
+    ViewData["Title"] = "Welcome";
+}
+
+<h2>Elenco Vittorie</h2>
+
+<form asp-action="Welcome" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Search: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Welcome">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    <a asp-action="Welcome" asp-route-sortOrder="@ViewData["TrofeoSortParm"]">@Html.DisplayNameFor(model => model.Trofei.Trofeo)</a>
+                </th>
+                <th>
+                    <a asp-action="Welcome" asp-route-sortOrder="@ViewData["StagioneSortParm"]">@Html.DisplayNameFor(model => model.Stagione)</a>
+                </th>
+                <th>
+                    <a asp-action="Welcome" asp-route-sortOrder="@ViewData["AllenatoreSortParm"]">@Html.DisplayNameFor(model => model.Allenatore)</a>                
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trofei.Trofeo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stagione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Allenatore)
+            </td>
+            <td>
+                <a asp-action="Partite" asp-route-id="@item.Id">Partite</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
