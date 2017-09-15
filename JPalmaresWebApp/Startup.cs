@@ -22,7 +22,7 @@ namespace JPalmaresWebApp
             services.AddMvc();
 
             services.AddDbContext<JPalmaresWebAppContext>(options =>
-                    options.UseSqlite("Data Source=jgp.sqlite"));
+                    options.UseSqlite("Data Source=db/jgp.sqlite"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

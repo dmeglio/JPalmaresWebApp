@@ -44,7 +44,7 @@
                 @Html.DisplayFor(modelItem => item.Allenatore)
             </td>
             <td>
-                <a asp-action="Partite" asp-route-id="@item.Id">Partite</a>
+                <a asp-action="Partite" asp-route-id="@item.Id" asp-route-sortOrder="@ViewData["AllenatoreSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]" asp-route-page="@Model.PageIndex">Partite</a>
             </td>
         </tr>
     }

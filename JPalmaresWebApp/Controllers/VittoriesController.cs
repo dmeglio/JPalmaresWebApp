@@ -91,13 +91,21 @@ namespace JPalmaresWebApp.Controllers
             return View(await PaginatedList<Vittorie>.CreateAsync(vittorie.AsNoTracking(), page ?? 1, pageSize));
         }
 
-        // GET: Vittories/Details/5
-        public async Task<IActionResult> Partite(long? id)
+        // GET: Vittories/Partite/5
+        public async Task<IActionResult> Partite(
+            long? id, 
+            string sortOrder,
+            string currentFilter,
+            int page)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["CurrentFilter"] = currentFilter;
+            ViewData["Page"] = page;
+
 
             var vittorie = await _context.Vittorie
                 .Include(s => s.Trofei)
